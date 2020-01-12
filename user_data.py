@@ -21,14 +21,14 @@ def registration():
 
         with open('userdata', 'w') as file:
             json.dump(userData, file)
-        os.system('cls')
+        os.system('clear')
         Core.startPage()
     except FileExistsError:
         print('file exists')
 
         registration()
     #ВХОД В СУЩЕСТВУЮЩИЙ АККАУНТ
-def singIn():
+def signIn():
     while True:
         try:
             with open ('userdata', 'r') as file:
@@ -38,7 +38,7 @@ def singIn():
             #ПРОЦЕСС ВХОДА
             if singLogin == b["login"]:
                 if singPassword == b["password"]:
-                    os.system('cls')
+                    os.system('clear')
                     Core.startPage()
                 else:
                     print('incorrect')
@@ -47,5 +47,5 @@ def singIn():
         except FileNotFoundError:
             print('data not found')
             time.sleep(1.0)
-            os.system('cls')
-            Core.singIn()
+            os.system('clear')
+            Core.signIn()
